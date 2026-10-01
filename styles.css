@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --blue:#3ca7ee;
+  --blue-dark:#07569b;
+  --blue-soft:#eaf7ff;
+  --text:#0c477c;
+  --muted:#4f7190;
+  --white:#fff;
+  --border:#d9edf9;
+  --shadow:0 16px 45px rgba(19,105,164,.13);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);background:#fff}
+a{text-decoration:none;color:inherit}
+.site-header{height:94px;display:flex;align-items:center;padding:0 5.2%;border-bottom:1px solid #e5f2f9;background:#fff;position:relative;z-index:20}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand-main{font-size:54px;font-weight:800;letter-spacing:-3px;color:var(--blue)}
+.brand-sub{font-size:11px;letter-spacing:4px;margin-top:7px;color:#2b7fbd}
+.desktop-nav{display:flex;gap:46px;margin-left:auto;margin-right:42px;font-size:15px;font-weight:600}
+.desktop-nav a{padding:10px 0}
+.desktop-nav .active{color:var(--blue);border-bottom:2px solid var(--blue)}
+.menu-button{border:0;background:#e9f6ff;color:#075d9f;border-radius:11px;width:48px;height:48px;font-size:27px;cursor:pointer}
+.portal-menu{position:absolute;right:5.2%;top:80px;width:305px;background:white;border:1px solid #e0eef6;border-radius:16px;box-shadow:var(--shadow);padding:13px;z-index:30;display:none}
+.portal-menu.open{display:block}
+.portal-title{font-size:25px;font-weight:800;color:var(--blue);padding:8px 10px 14px;border-bottom:1px solid var(--border)}
+.portal-menu a{display:flex;align-items:center;gap:13px;padding:17px 10px;border-bottom:1px solid #edf4f8;font-size:14px;color:#123f65}
+.portal-menu a:last-child{border-bottom:0}
+.portal-menu a b{margin-left:auto;font-size:22px;color:var(--blue)}
+.hero{min-height:560px;display:grid;grid-template-columns:46% 54%;overflow:hidden;background:linear-gradient(120deg,#eefaff,#dff3ff)}
+.hero-copy{padding:57px 7% 65px 10%;position:relative;z-index:2}
+.eyebrow{margin:0 0 9px;color:var(--blue);font-weight:800;letter-spacing:2px;font-size:17px}
+.hero h1{margin:0;color:#36a4ed;font-size:86px;line-height:.95;letter-spacing:-6px}
+.hero-system-name{font-size:20px;letter-spacing:5px;font-weight:700;color:#116da9;margin-top:7px}
+.hero h2{font-size:25px;line-height:1.22;margin:31px 0 17px;max-width:560px;color:#07569b}
+.hero-description{font-size:15px;line-height:1.65;max-width:560px;color:#376b92}
+.login-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:500px;margin-top:25px}
+.login-card{display:flex;align-items:center;gap:12px;padding:17px 18px;border-radius:12px;background:#3ba8ed;color:white;font-size:14px;font-weight:600;box-shadow:0 8px 20px rgba(38,151,224,.15);transition:.2s}
+.login-card:hover{transform:translateY(-2px);background:#2399e5}
+.login-card b{margin-left:auto;font-size:21px}
+.hero-visual{position:relative;min-height:560px;overflow:hidden;background:linear-gradient(145deg,#d9f3ff 0%,#9ddcff 100%)}
+.campus-glow{position:absolute;inset:-10% -5% 0 0;background:radial-gradient(circle at 50% 20%,#fff 0,rgba(255,255,255,.3) 24%,transparent 55%)}
+.student-illustration{position:absolute;inset:0;overflow:hidden}
+.sun{position:absolute;width:150px;height:150px;border-radius:50%;background:#fff8c9;right:21%;top:8%;opacity:.8}
+.building{position:absolute;bottom:30%;background:#fff;box-shadow:0 12px 30px rgba(27,110,158,.12)}
+.b1{width:45%;height:43%;right:4%;transform:skewY(-3deg)}
+.b2{width:28%;height:35%;right:43%;background:#e9f8ff}
+.b3{width:20%;height:27%;right:67%;background:#c7eaff}
+.student-head{position:absolute;width:120px;height:120px;border-radius:50%;background:#f0bb91;right:35%;top:22%;z-index:4}
+.student-hair{position:absolute;width:140px;height:100px;border-radius:60% 60% 30% 40%;background:#553a32;right:33.7%;top:18%;z-index:5}
+.student-body{position:absolute;width:260px;height:300px;border-radius:100px 100px 25px 25px;background:#173f6c;right:25%;bottom:-4%;z-index:3}
+.book{position:absolute;height:120px;width:210px;border-radius:8px;background:#d9f5ff;right:22%;bottom:9%;z-index:7;transform:rotate(-9deg);box-shadow:0 7px 20px rgba(20,90,130,.2)}
+.book2{right:28%;bottom:11%;background:#fff;transform:rotate(6deg)}
+.person{position:absolute;width:38px;height:90px;border-radius:20px 20px 4px 4px;background:#4d92bd;bottom:22%;z-index:2}
+.person:before{content:"";position:absolute;width:31px;height:31px;border-radius:50%;background:#d99d76;top:-27px;left:4px}
+.p1{right:10%}.p2{right:17%;background:#70b9dd;bottom:17%}.p3{right:5%;bottom:30%;background:#91cce5}
+.hero-quote{position:absolute;right:7%;bottom:8%;z-index:8;color:white;font-family:cursive;font-size:28px;line-height:1.1;text-align:right;text-shadow:0 2px 8px rgba(0,65,105,.25)}
+.features{padding:45px 6% 55px;text-align:center;background:white}
+.centered{text-align:center}
+.features>h2{font-size:27px;margin:8px 0 35px;color:#0b4f89}
+.feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:25px}
+.feature-grid article{padding:4px 10px}
+.feature-icon{width:58px;height:58px;border-radius:50%;background:#e9f6ff;color:#178bd4;display:grid;place-items:center;margin:auto;font-size:30px}
+.feature-grid h3{font-size:15px;margin:15px 0 8px}
+.feature-grid p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
+.contact-section{margin:0 6% 55px;padding:42px 5%;border-radius:24px;background:#eef9ff;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.contact-section h2{margin:5px 0 10px;font-size:27px}
+.contact-section p:last-child{margin:0;color:var(--muted)}
+.outline-button{border:1px solid var(--blue);color:#0879bf;padding:13px 21px;border-radius:10px;font-weight:700;white-space:nowrap}
+footer{text-align:center;padding:22px;color:#2186c7;font-size:12px;letter-spacing:4px;background:#eef9ff}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-copy{padding:45px 8%}
+  .hero-visual{min-height:390px}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .desktop-nav{display:none}
+}
+@media(max-width:560px){
+  .site-header{height:78px;padding:0 5%}.brand-main{font-size:39px}.brand-sub{font-size:8px;letter-spacing:2.5px}
+  .portal-menu{right:5%;top:69px;width:90%}
+  .hero h1{font-size:64px}.hero-system-name{font-size:15px;letter-spacing:3px}
+  .login-grid{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:1fr}
+  .contact-section{display:block}.outline-button{display:inline-block;margin-top:20px}
+}

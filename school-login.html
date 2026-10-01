@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Login — CIRCA</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{min-height:100vh;background:linear-gradient(135deg,#eefaff,#d9f2ff)}
+    .login-page{min-height:100vh;display:grid;place-items:center;padding:30px}
+    .login-box{width:min(440px,100%);background:#fff;border:1px solid #dceff8;border-radius:24px;padding:38px;box-shadow:0 20px 55px rgba(20,100,155,.14)}
+    .login-brand{font-size:43px;font-weight:800;letter-spacing:-2px;color:#38a6ed}
+    .login-brand small{display:block;font-size:9px;letter-spacing:3px;color:#227bb7;margin-top:4px}
+    .login-box h1{font-size:26px;margin:30px 0 8px;color:#0a5089}
+    .login-box .intro{color:#607f96;font-size:14px;line-height:1.6;margin-bottom:25px}
+    label{display:block;font-size:13px;font-weight:700;color:#315f7e;margin:16px 0 7px}
+    input{width:100%;padding:14px 15px;border:1px solid #cfe4ef;border-radius:10px;outline:none;font:inherit}
+    input:focus{border-color:#3ca7ee;box-shadow:0 0 0 3px #e8f6ff}
+    .submit{width:100%;margin-top:23px;padding:14px;border:0;border-radius:10px;background:#3ca7ee;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
+    .back{display:block;text-align:center;margin-top:20px;font-size:13px;color:#2383c1}
+    .note{font-size:11px;color:#8298a8;text-align:center;margin-top:20px;line-height:1.5}
+  </style>
+</head>
+<body>
+  <main class="login-page">
+    <form class="login-box" onsubmit="demoLogin(event)">
+      <a href="index.html" class="login-brand">CIRCA<small>MANAGEMENT SYSTEM</small></a>
+      <h1>School Administration Login</h1>
+      <p class="intro">School owners and authorized administrators can manage their school, staff roles and permissions.</p>
+
+      <label for="email">Administrator Email</label><input id="email" type="email" placeholder="admin@school.org" required><label for="password">Password</label><input id="password" type="password" placeholder="••••••••" required>
+
+      <button class="submit" type="submit">Log in</button>
+      <a class="back" href="index.html">← Back to CIRCA</a>
+      <p class="note">Demo interface only. Connect this form to your authentication backend before using real accounts.</p>
+    </form>
+  </main>
+  <script>
+    function demoLogin(event){
+      event.preventDefault();
+      alert("Demo login: connect this form to your CIRCA authentication system.");
+    }
+  </script>
+</body>
+</html>
