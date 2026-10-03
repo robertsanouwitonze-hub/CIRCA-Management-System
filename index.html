@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CIRCA — Management System</title>
   <link rel="stylesheet" href="styles.css">
+
+<style>
+.hero{position:relative;overflow:hidden;min-height:560px}
+.hero-copy{position:relative;z-index:3}
+.hero-visual{position:relative;z-index:1;background:transparent}
+.hero-photo-slider{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-photo{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
+.hero-photo.active{opacity:1}
+.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(232,248,255,.98) 0%,rgba(232,248,255,.9) 35%,rgba(232,248,255,.18) 78%,rgba(0,50,90,.2))}
+.hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:6;display:flex;gap:8px}
+.hero-dot{width:9px;height:9px;border:0;border-radius:50%;background:#fff;opacity:.8;cursor:pointer}.hero-dot.active{background:#239de7}
+.photo-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.9);color:#1177b7;font-size:25px;cursor:pointer}.photo-prev{left:20px}.photo-next{right:20px}
+.long-section{padding:65px 7%;background:#fff}.long-section.alt{background:#eef9ff}.long-inner{max-width:1100px;margin:auto}.long-section h2{font-size:32px;color:#0a5089;margin:8px 0 15px}.long-section p{color:#4f7190;line-height:1.75;font-size:15px}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.story-photo{height:330px;border-radius:22px;background-size:cover;background-position:center;box-shadow:0 16px 40px rgba(20,100,150,.15)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.info-card{border:1px solid #dceef7;border-radius:16px;padding:25px;background:#fff}.info-card h3{margin:12px 0 8px;color:#0a5089}.info-card p{font-size:13px;margin:0}
+.site-footer{background:#eaf7ff;text-align:center;padding:35px 20px;color:#247db5}.site-footer .footer-logo{font-size:28px;font-weight:800;letter-spacing:-1px}.site-footer .footer-sub{font-size:9px;letter-spacing:3px;margin-top:3px}.site-footer .copyright{margin-top:16px;font-size:13px}
+@media(max-width:800px){.story-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.hero-copy{max-width:100%}}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -24,14 +42,19 @@
 
   <aside class="portal-menu" id="portalMenu">
     <div class="portal-title">CIRCA</div>
-    
-    <a href="teacher-login.html"> <span>CIRCA for Teachers</span><b>›</b></a>
-    <a href="school-login.html"> <span>CIRCA for Schools</span><b>›</b></a>
-    <a href="parent-login.html"> <span>CIRCA Parent Portal</span><b>›</b></a>
+    <a href="student-login.html">🎓 <span>CIRCA for Students</span><b>›</b></a>
+    <a href="teacher-login.html">👨‍🏫 <span>CIRCA for Teachers</span><b>›</b></a>
+    <a href="school-login.html">🏫 <span>CIRCA for Schools</span><b>›</b></a>
+    <a href="parent-login.html">👨‍👩‍👧 <span>CIRCA Parent Portal</span><b>›</b></a>
   </aside>
 
   <main>
     <section class="hero">
+      <div class="hero-photo-slider" id="heroPhotoSlider">
+        <div class="hero-photo active" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85')"></div>
+        <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=85')"></div>
+        <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=85')"></div>
+      </div>
       <div class="hero-copy">
         <p class="eyebrow">WELCOME TO</p>
         <h1>CIRCA</h1>
@@ -44,10 +67,9 @@
         </p>
 
         <div class="login-grid">
-         
-          <a class="login-card" href="teacher-login.html"> <span>Teacher Login</span><b>→</b></a>
-          <a class="login-card" href="school-login.html"> <span>School Login</span><b>→</b></a>
-          <a class="login-card" href="parent-login.html"> <span>Parent Login</span><b>→</b></a>
+          <a class="login-card" href="teacher-login.html">👨‍🏫 <span>Teacher Login</span><b>→</b></a>
+          <a class="login-card" href="school-login.html">🏫 <span>School Login</span><b>→</b></a>
+          <a class="login-card" href="parent-login.html">👨‍👩‍👧 <span>Parent Login</span><b>→</b></a>
         </div>
       </div>
 
@@ -69,7 +91,10 @@
         </div>
         <div class="hero-quote">Better support.<br>Brighter futures.</div>
       </div>
-    </section>
+          <button class="photo-arrow photo-prev" id="photoPrev" aria-label="Previous photo">‹</button>
+      <button class="photo-arrow photo-next" id="photoNext" aria-label="Next photo">›</button>
+      <div class="hero-dots" id="heroDots"></div>
+</section>
 
     <section class="features" id="about">
       <p class="eyebrow centered">WHAT IS CIRCA?</p>
@@ -84,7 +109,35 @@
       </div>
     </section>
 
-    <section class="contact-section" id="help">
+    
+<section class="long-section alt">
+  <div class="long-inner story-grid">
+    <div>
+      <p class="eyebrow">YOUR SCHOOL. YOUR JOURNEY.</p>
+      <h2>Supporting every stage of the school experience.</h2>
+      <p>From everyday communication to serious health concerns, CIRCA gives schools one organized place to receive reports, review cases, assign the appropriate staff, record actions and follow up.</p>
+      <p>A student can raise a concern, a teacher can report something they notice, and authorized staff can manage the case according to the school's procedures. School administrators can also manage roles, permissions and school-wide information.</p>
+    </div>
+    <div class="story-photo" style="background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&q=85')"></div>
+  </div>
+</section>
+
+<section class="long-section" id="why-circa">
+  <div class="long-inner">
+    <p class="eyebrow" style="text-align:center">WHY CIRCA?</p>
+    <h2 style="text-align:center">Built around the way schools actually work.</h2>
+    <p style="text-align:center;max-width:850px;margin:0 auto">CIRCA is designed as a multi-school platform. Every school has its own environment, people, roles, permissions and records, while users are automatically connected to the school assigned to their account.</p>
+    <div class="info-grid">
+      <article class="info-card"><div class="feature-icon">🏫</div><h3>Multi-School System</h3><p>One CIRCA platform can support many schools while keeping each school's environment separate.</p></article>
+      <article class="info-card"><div class="feature-icon">🔐</div><h3>Role-Based Access</h3><p>School owners can create roles and decide what teachers, health officers and support staff can access.</p></article>
+      <article class="info-card"><div class="feature-icon">👤</div><h3>Automatic School Access</h3><p>Users do not choose their school at login. CIRCA already knows which school belongs to their account.</p></article>
+      <article class="info-card"><div class="feature-icon">🛡️</div><h3>Privacy &amp; Security</h3><p>Sensitive student information can be restricted to authorized people through permissions.</p></article>
+      <article class="info-card"><div class="feature-icon">⚙️</div><h3>Flexible Roles</h3><p>Schools can add or remove roles such as Animateur, Animatrice, Health Officer or Discipline Director.</p></article>
+      <article class="info-card"><div class="feature-icon">📈</div><h3>Reports &amp; Insights</h3><p>Authorized administrators can review school-wide information and identify areas that need attention.</p></article>
+    </div>
+  </div>
+</section>
+<section class="contact-section" id="help">
       <div>
         <p class="eyebrow">NEED HELP?</p>
         <h2>We're here to help schools use CIRCA.</h2>
@@ -94,7 +147,23 @@
     </section>
   </main>
 
-  <footer>SAFE • SUPPORTIVE • CONNECTED    ©CIRCA 2026   </footer>
+  <footer class="site-footer">
+  <div class="footer-logo">CIRCA</div>
+  <div class="footer-sub">MANAGEMENT SYSTEM</div>
+  <div style="margin-top:14px">Home &nbsp; | &nbsp; About &nbsp; | &nbsp; Help / Contact</div>
+  <div class="copyright">© CIRCA 2026</div>
+</footer>
   <script src="script.js"></script>
+
+<script>
+const heroPhotos=[...document.querySelectorAll('.hero-photo')];
+const heroDots=document.getElementById('heroDots');
+let photoIndex=0;
+heroPhotos.forEach((_,i)=>{const d=document.createElement('button');d.className='hero-dot'+(i===0?' active':'');d.onclick=()=>showPhoto(i);heroDots.appendChild(d)});
+function showPhoto(i){photoIndex=(i+heroPhotos.length)%heroPhotos.length;heroPhotos.forEach((p,n)=>p.classList.toggle('active',n===photoIndex));[...heroDots.children].forEach((d,n)=>d.classList.toggle('active',n===photoIndex))}
+document.getElementById('photoPrev').onclick=()=>showPhoto(photoIndex-1);
+document.getElementById('photoNext').onclick=()=>showPhoto(photoIndex+1);
+setInterval(()=>showPhoto(photoIndex+1),5500);
+</script>
 </body>
 </html>
