@@ -1,169 +1,56 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CIRCA — Management System</title>
-  <link rel="stylesheet" href="styles.css">
-
-<style>
-.hero{position:relative;overflow:hidden;min-height:560px}
-.hero-copy{position:relative;z-index:3}
-.hero-visual{position:relative;z-index:1;background:transparent}
-.hero-photo-slider{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-photo{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .8s ease}
-.hero-photo.active{opacity:1}
-.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(232,248,255,.98) 0%,rgba(232,248,255,.9) 35%,rgba(232,248,255,.18) 78%,rgba(0,50,90,.2))}
-.hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:6;display:flex;gap:8px}
-.hero-dot{width:9px;height:9px;border:0;border-radius:50%;background:#fff;opacity:.8;cursor:pointer}.hero-dot.active{background:#239de7}
-.photo-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.9);color:#1177b7;font-size:25px;cursor:pointer}.photo-prev{left:20px}.photo-next{right:20px}
-.long-section{padding:65px 7%;background:#fff}.long-section.alt{background:#eef9ff}.long-inner{max-width:1100px;margin:auto}.long-section h2{font-size:32px;color:#0a5089;margin:8px 0 15px}.long-section p{color:#4f7190;line-height:1.75;font-size:15px}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.story-photo{height:330px;border-radius:22px;background-size:cover;background-position:center;box-shadow:0 16px 40px rgba(20,100,150,.15)}
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.info-card{border:1px solid #dceef7;border-radius:16px;padding:25px;background:#fff}.info-card h3{margin:12px 0 8px;color:#0a5089}.info-card p{font-size:13px;margin:0}
-.site-footer{background:#eaf7ff;text-align:center;padding:35px 20px;color:#247db5}.site-footer .footer-logo{font-size:28px;font-weight:800;letter-spacing:-1px}.site-footer .footer-sub{font-size:9px;letter-spacing:3px;margin-top:3px}.site-footer .copyright{margin-top:16px;font-size:13px}
-@media(max-width:800px){.story-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.hero-copy{max-width:100%}}
-</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CIRCA — Management System</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="CIRCA home">
-      <span class="brand-main">CIRCA</span>
-      <span class="brand-sub">MANAGEMENT SYSTEM</span>
-    </a>
-
-    <nav class="desktop-nav">
-      <a class="active" href="index.html">Home</a>
-      <a href="#about">About</a>
-      <a href="#help">Help / Contact</a>
-    </nav>
-
-    <button class="menu-button" id="menuButton" aria-label="Open CIRCA portals" aria-expanded="false">☰</button>
-  </header>
-
-  <aside class="portal-menu" id="portalMenu">
-    <div class="portal-title">CIRCA</div>
-  
-    <a href="teacher-login.html"> <span>CIRCA for Teachers</span><b>›</b></a>
-    <a href="school-login.html"> <span>CIRCA for Schools</span><b>›</b></a>
-    <a href="parent-login.html"> <span>CIRCA Parent Portal</span><b>›</b></a>
-  </aside>
-
-  <main>
-    <section class="hero">
-      <div class="hero-photo-slider" id="heroPhotoSlider">
-        <div class="hero-photo active" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85')"></div>
-        <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=85')"></div>
-        <div class="hero-photo" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1800&q=85')"></div>
-      </div>
-      <div class="hero-copy">
-        <p class="eyebrow">WELCOME TO</p>
-        <h1>CIRCA</h1>
-        <div class="hero-system-name">MANAGEMENT SYSTEM</div>
-
-        <h2>A smarter way to connect schools, students, teachers and families.</h2>
-        <p class="hero-description">
-          CIRCA helps schools manage student wellbeing, health, school-life concerns,
-          communication, support cases and approved absences through one secure digital platform.
-        </p>
-
-        <div class="login-grid">
-          <a class="login-card" href="teacher-login.html"> <span>Teacher Login</span><b>→</b></a>
-          <a class="login-card" href="school-login.html"> <span>School Login</span><b>→</b></a>
-          <a class="login-card" href="parent-login.html"> <span>Parent Login</span><b>→</b></a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="campus-glow"></div>
-        <div class="student-illustration">
-          <div class="sun"></div>
-          <div class="building b1"></div>
-          <div class="building b2"></div>
-          <div class="building b3"></div>
-          <div class="student-head"></div>
-          <div class="student-hair"></div>
-          <div class="student-body"></div>
-          <div class="book book1"></div>
-          <div class="book book2"></div>
-          <div class="person p1"></div>
-          <div class="person p2"></div>
-          <div class="person p3"></div>
-        </div>
-        <div class="hero-quote">Better support.<br>Brighter futures.</div>
-      </div>
-          <button class="photo-arrow photo-prev" id="photoPrev" aria-label="Previous photo">‹</button>
-      <button class="photo-arrow photo-next" id="photoNext" aria-label="Next photo">›</button>
-      <div class="hero-dots" id="heroDots"></div>
-</section>
-
-    <section class="features" id="about">
-      <p class="eyebrow centered">WHAT IS CIRCA?</p>
-      <h2>More than just a platform — it’s support.</h2>
-
-      <div class="feature-grid">
-        <article><div class="feature-icon">♡</div><h3>Health &amp; Wellbeing</h3><p>Report health concerns and connect students with the right support.</p></article>
-        <article><div class="feature-icon">♢</div><h3>Student Support</h3><p>Share school-life concerns, conflicts, safety issues and other needs.</p></article>
-        <article><div class="feature-icon">♧</div><h3>Better Communication</h3><p>Keep students, teachers, families and schools connected.</p></article>
-        <article><div class="feature-icon">▣</div><h3>Attendance &amp; Absences</h3><p>Manage approved absences and verify them securely.</p></article>
-        <article><div class="feature-icon">▢</div><h3>Secure &amp; Private</h3><p>Use role-based access so sensitive information reaches the right people.</p></article>
-      </div>
-    </section>
-
-    
-<section class="long-section alt">
-  <div class="long-inner story-grid">
-    <div>
-      <p class="eyebrow">YOUR SCHOOL. YOUR JOURNEY.</p>
-      <h2>Supporting every stage of the school experience.</h2>
-      <p>From everyday communication to serious health concerns, CIRCA gives schools one organized place to receive reports, review cases, assign the appropriate staff, record actions and follow up.</p>
-      <p>A student can raise a concern, a teacher can report something they notice, and authorized staff can manage the case according to the school's procedures. School administrators can also manage roles, permissions and school-wide information.</p>
-    </div>
-    <div class="story-photo" style="background-image:url('https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&q=85')"></div>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="CIRCA home"><span class="brand-mark">C</span><span><b>CIRCA</b><small>MANAGEMENT SYSTEM</small></span></a>
+  <nav class="nav"><a href="#about">About</a><a href="#portals">Portals</a><a href="#contact">Contact</a></nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">A clearer way to support school communities</span>
+    <h1>Better school care.<br><em>One connected system.</em></h1>
+    <p>CIRCA helps schools coordinate student wellbeing, approved permissions, staff responsibilities and family communication in one organized workspace.</p>
+    <div class="actions"><a class="btn primary" href="#portals">Explore CIRCA <span>→</span></a><a class="btn secondary" href="#about">Discover the system</a></div>
+    <div class="hero-note"><span class="pulse"></span> Built around responsibility, privacy and collaboration</div>
+  </div>
+  <div class="hero-art">
+    <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    <div class="glass-card card-main"><div class="mini-logo">C</div><div><b>School workspace</b><small>People • Permissions • Support</small></div><span class="check">✓</span></div>
+    <div class="glass-card card-float"><span class="bubble blue">✦</span><div><b>Role-based access</b><small>Only what you need</small></div></div>
+    <div class="glass-card card-bottom"><span class="bubble red">⌁</span><div><b>Connected school teams</b><small>Clearer coordination</small></div></div>
+    <div class="art-center"><span>CI</span><small>CARE · INTEGRITY · COMMUNITY</small></div>
   </div>
 </section>
-
-<section class="long-section" id="why-circa">
-  <div class="long-inner">
-    <p class="eyebrow" style="text-align:center">WHY CIRCA?</p>
-    <h2 style="text-align:center">Built around the way schools actually work.</h2>
-    <p style="text-align:center;max-width:850px;margin:0 auto">CIRCA is designed as a multi-school platform. Every school has its own environment, people, roles, permissions and records, while users are automatically connected to the school assigned to their account.</p>
-    <div class="info-grid">
-      <article class="info-card"><div class="feature-icon"></div><h3>Multi-School System</h3><p>One CIRCA platform can support many schools while keeping each school's environment separate.</p></article>
-      <article class="info-card"><div class="feature-icon"></div><h3>Role-Based Access</h3><p>School owners can create roles and decide what teachers, health officers and support staff can access.</p></article>
-      <article class="info-card"><div class="feature-icon"></div><h3>Automatic School Access</h3><p>Users do not choose their school at login. CIRCA already knows which school belongs to their account.</p></article>
-      <article class="info-card"><div class="feature-icon"></div><h3>Privacy &amp; Security</h3><p>Sensitive student information can be restricted to authorized people through permissions.</p></article>
-      <article class="info-card"><div class="feature-icon"></div><h3>Flexible Roles</h3><p>Schools can add or remove roles such as Animateur, Animatrice, Health Officer or Discipline Director.</p></article>
-      <article class="info-card"><div class="feature-icon"></div><h3>Reports &amp; Insights</h3><p>Authorized administrators can review school-wide information and identify areas that need attention.</p></article>
-    </div>
+<section class="trust-strip"><div><b>One platform</b><span>for school workflows</span></div><div><b>Clear roles</b><span>and responsibilities</span></div><div><b>Privacy first</b><span>with restricted access</span></div></section>
+<section class="section" id="about">
+  <div class="section-heading"><span class="eyebrow">WHY CIRCA</span><h2>More organized support<br>for the whole school.</h2><p>School communities work best when the right people have the right information at the right time.</p></div>
+  <div class="feature-grid">
+    <article class="feature"><span class="feature-icon">♡</span><h3>Student wellbeing</h3><p>Help authorized school teams coordinate health and support workflows with appropriate confidentiality.</p></article>
+    <article class="feature"><span class="feature-icon">✓</span><h3>Approved permissions</h3><p>Help teachers check relevant, approved student permissions without searching through disconnected messages.</p></article>
+    <article class="feature"><span class="feature-icon">◎</span><h3>Clear accountability</h3><p>Keep school responsibilities organized through assigned roles, approvals and an auditable activity history.</p></article>
   </div>
 </section>
-<section class="contact-section" id="help">
-      <div>
-        <p class="eyebrow">NEED HELP?</p>
-        <h2>We're here to help schools use CIRCA.</h2>
-        <p>For account, school registration or platform questions, contact your CIRCA administrator.</p>
-      </div>
-      <a class="outline-button" href="mailto:support@circa.example">Contact CIRCA</a>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-  <div class="footer-logo">CIRCA</div>
-  <div class="footer-sub">MANAGEMENT SYSTEM</div>
-  <div style="margin-top:14px">Home &nbsp; | &nbsp; About &nbsp; | &nbsp; Help / Contact</div>
-  <div class="copyright">© CIRCA 2026</div>
-</footer>
-  <script src="script.js"></script>
-
-<script>
-const heroPhotos=[...document.querySelectorAll('.hero-photo')];
-const heroDots=document.getElementById('heroDots');
-let photoIndex=0;
-heroPhotos.forEach((_,i)=>{const d=document.createElement('button');d.className='hero-dot'+(i===0?' active':'');d.onclick=()=>showPhoto(i);heroDots.appendChild(d)});
-function showPhoto(i){photoIndex=(i+heroPhotos.length)%heroPhotos.length;heroPhotos.forEach((p,n)=>p.classList.toggle('active',n===photoIndex));[...heroDots.children].forEach((d,n)=>d.classList.toggle('active',n===photoIndex))}
-document.getElementById('photoPrev').onclick=()=>showPhoto(photoIndex-1);
-document.getElementById('photoNext').onclick=()=>showPhoto(photoIndex+1);
-setInterval(()=>showPhoto(photoIndex+1),5500);
-</script>
-</body>
-</html>
+<section class="section pale" id="portals">
+  <div class="section-heading"><span class="eyebrow">THE CIRCA ECOSYSTEM</span><h2>One system. Different responsibilities.</h2><p>Every portal is designed around what its users need to do.</p></div>
+  <div class="portal-grid">
+    <article class="portal-card featured"><span class="portal-symbol">✦</span><span class="portal-tag">PLATFORM ADMINISTRATION</span><h3>CIRCA Academy</h3><p>Manage school registration invitations, review applications and oversee platform settings.</p><a href="academy.html" class="text-link">Open Academy preview →</a></article>
+    <article class="portal-card"><span class="portal-symbol">⌂</span><span class="portal-tag">SCHOOL ADMINISTRATION</span><h3>CIRCA for Schools</h3><p>Manage staff, invitations, departments, classrooms and school-specific permissions.</p><a href="school-login.html" class="text-link">School portal →</a></article>
+    <article class="portal-card"><span class="portal-symbol">▤</span><span class="portal-tag">STAFF WORKSPACE</span><h3>CIRCA for Teachers & Staff</h3><p>Access approved school functions according to each staff member’s assigned role.</p><a href="teacher-login.html" class="text-link">Staff portal →</a></article>
+    <article class="portal-card"><span class="portal-symbol">♡</span><span class="portal-tag">FAMILY CONNECTION</span><h3>CIRCA for Parents</h3><p>Support secure communication and access to information authorized for a linked child.</p><a href="parent-login.html" class="text-link">Parent portal →</a></article>
+  </div>
+  <p class="privacy-note">Students do not have CIRCA accounts or a direct student dashboard. Student information is handled by authorized staff and other approved workflows.</p>
+</section>
+<section class="section split" id="privacy"><div><span class="eyebrow">DESIGNED WITH CARE</span><h2>Access should follow responsibility.</h2><p>CIRCA is designed around school-specific workspaces and role-based permissions. A teacher, health officer, discipline officer and school owner should not automatically see the same information.</p><ul class="check-list"><li>School-specific staff invitations</li><li>Approval before protected access</li><li>Separate health and discipline permissions</li><li>Audit trails for important actions</li></ul></div><div class="privacy-visual"><div class="privacy-shield">✓</div><div class="privacy-line"></div><div class="privacy-chip">Verified access</div><div class="privacy-chip chip-two">School boundaries</div><div class="privacy-chip chip-three">Role permissions</div></div></section>
+<section class="contact-band" id="contact"><div><span class="eyebrow">START WITH CIRCA</span><h2>Build a more connected school community.</h2><p>Explore the portal concepts as CIRCA’s school-management workflow takes shape.</p></div><a href="academy.html" class="btn light">Explore CIRCA Academy →</a></section>
+</main>
+<footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">C</span><span><b>CIRCA</b><small>MANAGEMENT SYSTEM</small></span></a><span>© CIRCA 2026</span><div><a href="#about">About</a><a href="#portals">Portals</a><a href="#contact">Contact</a></div></footer>
+<script src="script.js"></script>
+</body></html>

@@ -1,14 +1,1 @@
-const menuButton = document.getElementById("menuButton");
-const portalMenu = document.getElementById("portalMenu");
-
-menuButton.addEventListener("click", () => {
-  const open = portalMenu.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", open);
-});
-
-document.addEventListener("click", (event) => {
-  if (!portalMenu.contains(event.target) && !menuButton.contains(event.target)) {
-    portalMenu.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-  }
-});
+const toggle=document.getElementById('menuToggle');const nav=document.querySelector('.nav');if(toggle&&nav){toggle.addEventListener('click',()=>nav.classList.toggle('open'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));}
